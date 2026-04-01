@@ -1,16 +1,16 @@
-# J.A.R.V.I.S. Voice Assistant (English + Ελληνικά)
+# G.R.A.V.I.S. Voice Assistant (English + Ελληνικά)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-4285F4?logo=google&logoColor=white)](https://ai.google.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A bilingual desktop AI assistant inspired by J.A.R.V.I.S., built with Python.
+A bilingual desktop AI assistant inspired by G.R.A.V.I.S., built with Python.
 It supports voice commands, system actions, notes, screenshots, camera vision, and Gemini AI responses in both English and Greek.
 
 ## Demo
 
-![J.A.R.V.I.S Demo](assets/demo.gif)
+![G.R.A.V.I.S Demo](assets/demo.gif)
 
 _Tip: Replace `assets/demo.gif` with your real screen recording GIF._
 
@@ -26,7 +26,7 @@ _Tip: Add your real images in `assets/screenshots/` and keep clear filenames._
 ## English
 
 ### Features
-- Wake-word assistant mode (Jarvis / Greek variants).
+- Wake-word assistant mode (Gravis / Greek variants).
 - Bilingual voice recognition: Greek (`el-GR`) and English (`en-US`).
 - Bilingual speech output with automatic voice switching.
 - Gemini AI integration (`gemini-2.5-flash`) for natural responses.
@@ -76,22 +76,22 @@ pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui 
 python check.py
 ```
 
-4. Run J.A.R.V.I.S:
+4. Run G.R.A.V.I.S:
 
 ```bash
 python jarvis.py
 ```
 
 ### Example Voice Commands (English)
-- "Jarvis, help"
-- "Jarvis, open youtube.com"
-- "Jarvis, play Linkin Park Numb"
-- "Jarvis, take note buy milk"
-- "Jarvis, what time is it"
-- "Jarvis, system status"
-- "Jarvis, look around"
-- "Jarvis, sleep mode"
-- "Jarvis, wake up"
+- "Gravis, help"
+- "Gravis, open youtube.com"
+- "Gravis, play Linkin Park Numb"
+- "Gravis, take note buy milk"
+- "Gravis, what time is it"
+- "Gravis, system status"
+- "Gravis, look around"
+- "Gravis, sleep mode"
+- "Gravis, wake up"
 
 ### Troubleshooting
 - If microphone is not detected, check Windows privacy settings.
@@ -108,7 +108,7 @@ python jarvis.py
 ## Ελληνικά
 
 ### Χαρακτηριστικά
-- Λειτουργία wake-word (Jarvis και ελληνικές παραλλαγές).
+- Λειτουργία wake-word (Gravis και ελληνικές παραλλαγές).
 - Δίγλωσση αναγνώριση φωνής: Ελληνικά (`el-GR`) και English (`en-US`).
 - Δίγλωσση εκφώνηση με αυτόματη αλλαγή φωνής ανά γλώσσα.
 - Ενσωμάτωση Gemini AI (`gemini-2.5-flash`) για φυσικές απαντήσεις.
@@ -158,22 +158,22 @@ pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui 
 python check.py
 ```
 
-4. Εκκίνηση J.A.R.V.I.S:
+4. Εκκίνηση G.R.A.V.I.S:
 
 ```bash
 python jarvis.py
 ```
 
 ### Παραδείγματα Φωνητικών Εντολών (Ελληνικά)
-- «Τζάρβις βοήθεια»
-- «Τζάρβις άνοιξε youtube.com»
-- «Τζάρβις παίξε Imagine Dragons Believer»
-- «Τζάρβις σημείωσε να πάρω γάλα»
-- «Τζάρβις τι ώρα είναι»
-- «Τζάρβις κατάσταση συστήματος»
-- «Τζάρβις τι βλέπεις»
-- «Τζάρβις κοιμήσου»
-- «Τζάρβις ξύπνα»
+- «Γκράβις βοήθεια»
+- «Γκράβις άνοιξε youtube.com»
+- «Γκράβις παίξε Imagine Dragons Believer»
+- «Γκράβις σημείωσε να πάρω γάλα»
+- «Γκράβις τι ώρα είναι»
+- «Γκράβις κατάσταση συστήματος»
+- «Γκράβις τι βλέπεις»
+- «Γκράβις κοιμήσου»
+- «Γκράβις ξύπνα»
 
 ### Αντιμετώπιση Προβλημάτων
 - Αν δεν πιάνει μικρόφωνο, έλεγξε τα Windows privacy permissions.

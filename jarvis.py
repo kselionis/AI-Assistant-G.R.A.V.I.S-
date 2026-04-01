@@ -36,23 +36,23 @@ def load_api_key():
 
 API_KEY = load_api_key()
 MODEL_NAME = "gemini-2.5-flash"
-WAKE_WORDS = ["jarvis", "tzarvis", "τζαρβις", "assistant", "βοηθε", "voithe"]
+WAKE_WORDS = ["gravis", "γκραβις", "assistant", "βοηθε", "voithe"]
 
 # Ρυθμίσεις Εμφάνισης
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
-class JarvisGUI(ctk.CTk):
+class GravisGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("J.A.R.V.I.S. Systems")
+        self.title("G.R.A.V.I.S. Systems")
         self.geometry("600x500")
         self.resizable(False, False)
         
         self.main_frame = ctk.CTkFrame(self, corner_radius=15)
         self.main_frame.pack(pady=20, padx=20, fill="both", expand=True)
 
-        self.label_title = ctk.CTkLabel(self.main_frame, text="● J.A.R.V.I.S.", font=("Roboto Medium", 24), text_color="#00E5FF")
+        self.label_title = ctk.CTkLabel(self.main_frame, text="● G.R.A.V.I.S.", font=("Roboto Medium", 24), text_color="#00E5FF")
         self.label_title.pack(pady=10)
 
         self.status_label = ctk.CTkLabel(self.main_frame, text="SYSTEMS INITIALIZING...", font=("Roboto", 14), text_color="gray")
@@ -93,14 +93,14 @@ def init_ai_client():
         print(f"DEBUG: AI init error -> {e}")
         return None
 
-app = JarvisGUI()
+app = GravisGUI()
 client = init_ai_client()
 
 # --- ΛΕΙΤΟΥΡΓΙΕΣ ---
 
 # Ρύθμιση Φωνής Edge-TTS
 VOICE_BY_LANG = {
-    "el": "el-GR-NestorasNeural",  # Ανδρική φυσική φωνή (πιο κοντά στον Jarvis)
+    "el": "el-GR-NestorasNeural",  # Ανδρική φυσική φωνή (πιο κοντά στον Gravis)
     "en": "en-US-GuyNeural",
 }
 SPEED = "+20%" # Πόσο πιο γρήγορα θέλεις να μιλάει (παίξε με το +10% ή +30%)
@@ -122,8 +122,8 @@ def speak(text, lang=None):
     
     # GUI Updates
     app.safe_update_status("SPEAKING...", "#00FF00")
-    app.safe_log_message("JARVIS", text)
-    print(f"DEBUG: Jarvis saying ({resolved_lang}, {voice}) -> {text}")
+    app.safe_log_message("GRAVIS", text)
+    print(f"DEBUG: Gravis saying ({resolved_lang}, {voice}) -> {text}")
     
     try:
         # Καλούμε την ασύγχρονη συνάρτηση του Edge-TTS
@@ -234,7 +234,7 @@ def has_wake_word(command):
 
 def remove_wake_word(command):
     cleaned = command
-    wake_variants = ["jarvis", "tzarvis", "τζάρβις", "τζαρβις", "assistant", "βοηθέ", "βοηθε", "voithe"]
+    wake_variants = ["gravis", "γκράβις", "γκραβις", "assistant", "βοηθέ", "βοηθε", "voithe"]
     for w in wake_variants:
         cleaned = re.sub(re.escape(w), "", cleaned, flags=re.IGNORECASE)
     return " ".join(cleaned.split())
@@ -484,7 +484,7 @@ def take_picture():
         print(f"Camera Error: {e}")
     return None
 
-def run_jarvis_logic():
+def run_gravis_logic():
     print("DEBUG: Thread Started")
     time.sleep(2)
     
@@ -495,8 +495,8 @@ def run_jarvis_logic():
     else: greeting = "Συστήματα ενεργά."
     speak(greeting)
     
-    SYSTEM_INSTRUCTION_EL = "Είσαι ο J.A.R.V.I.S. Απάντα στα Ελληνικά, σύντομα, με αυτοπεποίθηση και χρήσιμες λεπτομέρειες."
-    SYSTEM_INSTRUCTION_EN = "You are J.A.R.V.I.S. Respond in clear English, concise, confident, and helpful."
+    SYSTEM_INSTRUCTION_EL = "Είσαι ο G.R.A.V.I.S. Απάντα στα Ελληνικά, σύντομα, με αυτοπεποίθηση και χρήσιμες λεπτομέρειες."
+    SYSTEM_INSTRUCTION_EN = "You are G.R.A.V.I.S. Respond in clear English, concise, confident, and helpful."
     
     active_listening = True 
 
@@ -550,7 +550,7 @@ def run_jarvis_logic():
 
 if __name__ == "__main__":
     # Ξεκινάμε το Thread
-    thread = threading.Thread(target=run_jarvis_logic)
+    thread = threading.Thread(target=run_gravis_logic)
     thread.daemon = True
     thread.start()
 
