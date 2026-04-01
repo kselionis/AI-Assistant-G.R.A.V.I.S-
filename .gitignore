@@ -1,0 +1,47 @@
+# Secrets
+/gemini_api_key
+.env
+.env.*
+*.env
+
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build/distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test/cache tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# IDE/editor
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Runtime artifacts
+*.log
+*.wav
+*.mp3
+*.tmp
+
+# Optional local assets/recordings
+assets/tmp/
+assets/recordings/
