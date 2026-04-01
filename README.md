@@ -1,186 +1,114 @@
-# G.R.A.V.I.S. Voice Assistant (English + Ελληνικά)
+# G.R.A.V.I.S. Voice Assistant
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-4285F4?logo=google&logoColor=white)](https://ai.google.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A bilingual desktop AI assistant inspired by G.R.A.V.I.S., built with Python.
-It supports voice commands, system actions, notes, screenshots, camera vision, and Gemini AI responses in both English and Greek.
+G.R.A.V.I.S. is a desktop AI assistant built with Python for English and Greek voice interaction.
+It combines wake-word commands, local system actions, and Gemini AI responses in a single GUI app.
 
 ## Demo
 
 ![G.R.A.V.I.S Demo](assets/demo.gif)
-
-_Tip: Replace `assets/demo.gif` with your real screen recording GIF._
 
 ## Screenshots
 
 ![Main UI](assets/screenshots/main_ui.png)
 ![Voice Command](assets/screenshots/voice_command.png)
 
-_Tip: Add your real images in `assets/screenshots/` and keep clear filenames._
+## Features
 
----
-
-## English
-
-### Features
-- Wake-word assistant mode (Gravis / Greek variants).
-- Bilingual voice recognition: Greek (`el-GR`) and English (`en-US`).
-- Bilingual speech output with automatic voice switching.
-- Gemini AI integration (`gemini-2.5-flash`) for natural responses.
-- GUI interface using CustomTkinter.
-- Built-in commands:
-  - help
-  - Wikipedia search
-  - open app/site/search target
-  - daily briefing
+- Wake-word activation: Gravis / Greek variants.
+- Bilingual speech recognition (`el-GR`, `en-US`).
+- Bilingual text-to-speech with automatic voice selection.
+- Gemini AI integration (`gemini-2.5-flash`) for fallback answers.
+- GUI with live status and command log.
+- Built-in commands for:
+  - web search and Wikipedia
+  - opening apps/sites
+  - YouTube playback
+  - notes
+  - screenshots
+  - camera scene description
   - system status (CPU/RAM/battery)
-  - empty recycle bin
-  - schedule/cancel shutdown
-  - save/read notes
-  - play song on YouTube
-  - time
-  - volume up/down
-  - screenshot
-  - camera scene description (vision)
-- Sleep / wake listening mode.
+  - recycle bin cleanup
+  - shutdown scheduling
+  - sleep/wake listening modes
 
-### Project Structure
-- `jarvis.py`: Main assistant app (GUI + voice + commands + AI fallback).
-- `check.py`: Gemini connection/model check utility.
-- `gemini_api_key`: Local API key file (fallback when env var is not set).
+## Project Structure
 
-### Requirements
-- Windows (recommended for current system actions).
-- Python 3.10+
-- Microphone and speakers
-- Internet connection
-- Gemini API key
+- `jarvis.py`: Main application (GUI, voice, command routing, AI fallback).
+- `check.py`: Quick Gemini model/API test script.
+- `gemini_api_key`: Local API key file (optional fallback if env var is missing).
+- `assets/`: Demo and screenshots.
 
-### Installation
-1. Install dependencies:
+## Quick Start (Windows)
 
-```bash
-pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui Pillow google-genai customtkinter pywhatkit psutil winshell pyaudio
+1. Install Python 3.10+ from python.org.
+2. Make sure `tcl/tk and IDLE` is installed (required by `customtkinter`).
+3. Install dependencies:
+
+```powershell
+py -m pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui Pillow google-genai customtkinter pywhatkit psutil winshell pyaudio pywin32
 ```
 
-2. Add your API key:
+4. Add your Gemini API key:
 - Option A: set environment variable `GEMINI_API_KEY`
-- Option B: put your key inside `gemini_api_key` (single line)
+- Option B: create/update `gemini_api_key` with your key in one line
 
-3. Verify Gemini connection:
+5. Verify AI connectivity:
 
-```bash
-python check.py
+```powershell
+py check.py
 ```
 
-4. Run G.R.A.V.I.S:
+6. Run the assistant:
 
-```bash
-python jarvis.py
+```powershell
+py jarvis.py
 ```
 
-### Example Voice Commands (English)
+## Example Voice Commands
+
+English:
 - "Gravis, help"
 - "Gravis, open youtube.com"
 - "Gravis, play Linkin Park Numb"
-- "Gravis, take note buy milk"
 - "Gravis, what time is it"
 - "Gravis, system status"
-- "Gravis, look around"
-- "Gravis, sleep mode"
-- "Gravis, wake up"
 
-### Troubleshooting
-- If microphone is not detected, check Windows privacy settings.
-- If AI responses fail, verify your API key and run `python check.py`.
-- If audio playback fails, ensure no other app is locking the output device.
-- If camera command fails, verify camera permissions and device availability.
+Greek:
+- "Γκράβις βοήθεια"
+- "Γκράβις άνοιξε youtube.com"
+- "Γκράβις παίξε Imagine Dragons"
+- "Γκράβις τι ώρα είναι"
+- "Γκράβις κατάσταση συστήματος"
 
-### Security Note
-- Never commit your real API key to public repositories.
-- Add `gemini_api_key` to `.gitignore` before pushing to GitHub.
+## Troubleshooting
 
----
+- `ModuleNotFoundError: No module named 'tkinter'`
+  - Re-run Python installer and enable `tcl/tk and IDLE`.
 
-## Ελληνικά
+- `ModuleNotFoundError: No module named 'win32con'`
+  - Install/repair pywin32:
 
-### Χαρακτηριστικά
-- Λειτουργία wake-word (Gravis και ελληνικές παραλλαγές).
-- Δίγλωσση αναγνώριση φωνής: Ελληνικά (`el-GR`) και English (`en-US`).
-- Δίγλωσση εκφώνηση με αυτόματη αλλαγή φωνής ανά γλώσσα.
-- Ενσωμάτωση Gemini AI (`gemini-2.5-flash`) για φυσικές απαντήσεις.
-- Γραφικό περιβάλλον με CustomTkinter.
-- Ενσωματωμένες εντολές:
-  - βοήθεια
-  - αναζήτηση στη Wikipedia
-  - άνοιγμα εφαρμογής/ιστοσελίδας/αναζήτησης
-  - ημερήσια αναφορά
-  - κατάσταση συστήματος (CPU/RAM/μπαταρία)
-  - καθάρισμα κάδου ανακύκλωσης
-  - προγραμματισμός/ακύρωση τερματισμού
-  - αποθήκευση/ανάγνωση σημειώσεων
-  - αναπαραγωγή τραγουδιού στο YouTube
-  - ώρα
-  - ένταση ήχου πάνω/κάτω
-  - screenshot
-  - περιγραφή εικόνας από κάμερα (vision)
-- Λειτουργία ύπνου/αφύπνισης.
-
-### Δομή Project
-- `jarvis.py`: Κύρια εφαρμογή βοηθού (GUI + φωνή + εντολές + AI fallback).
-- `check.py`: Έλεγχος σύνδεσης και μοντέλων Gemini.
-- `gemini_api_key`: Τοπικό αρχείο API key (fallback αν δεν υπάρχει env var).
-
-### Απαιτήσεις
-- Windows (προτείνεται για τις τρέχουσες system ενέργειες).
-- Python 3.10+
-- Μικρόφωνο και ηχεία
-- Σύνδεση στο internet
-- Gemini API key
-
-### Εγκατάσταση
-1. Εγκατάσταση dependencies:
-
-```bash
-pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui Pillow google-genai customtkinter pywhatkit psutil winshell pyaudio
+```powershell
+py -m pip install pywin32
 ```
 
-2. Βάλε το API key:
-- Επιλογή A: env var `GEMINI_API_KEY`
-- Επιλογή B: βάλε το key μέσα στο `gemini_api_key` (μία γραμμή)
+- AI does not answer
+  - Check `GEMINI_API_KEY` or `gemini_api_key` file.
+  - Run `py check.py` to validate model access.
 
-3. Έλεγχος σύνδεσης Gemini:
+- Microphone not detected
+  - Check Windows microphone privacy permissions.
 
-```bash
-python check.py
-```
+## Security
 
-4. Εκκίνηση G.R.A.V.I.S:
+- Do not commit real API keys.
+- `.gitignore` already excludes `gemini_api_key`, `.env`, and common local artifacts.
 
-```bash
-python jarvis.py
-```
+## Notes
 
-### Παραδείγματα Φωνητικών Εντολών (Ελληνικά)
-- «Γκράβις βοήθεια»
-- «Γκράβις άνοιξε youtube.com»
-- «Γκράβις παίξε Imagine Dragons Believer»
-- «Γκράβις σημείωσε να πάρω γάλα»
-- «Γκράβις τι ώρα είναι»
-- «Γκράβις κατάσταση συστήματος»
-- «Γκράβις τι βλέπεις»
-- «Γκράβις κοιμήσου»
-- «Γκράβις ξύπνα»
-
-### Αντιμετώπιση Προβλημάτων
-- Αν δεν πιάνει μικρόφωνο, έλεγξε τα Windows privacy permissions.
-- Αν δεν απαντά το AI, έλεγξε το API key και τρέξε `python check.py`.
-- Αν δεν παίζει ήχο, έλεγξε αν άλλη εφαρμογή κρατά τη συσκευή εξόδου.
-- Αν αποτυγχάνει η κάμερα, έλεγξε άδειες και διαθεσιμότητα συσκευής.
-
-### Σημείωση Ασφαλείας
-- Μην ανεβάζεις πραγματικό API key σε public repository.
-- Πρόσθεσε το `gemini_api_key` στο `.gitignore` πριν κάνεις push στο GitHub.
+- Current implementation is Windows-oriented for several system commands.
+- If you want Linux/macOS support, add platform-specific command handlers.
