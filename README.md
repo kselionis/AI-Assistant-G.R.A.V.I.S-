@@ -49,7 +49,7 @@ It combines wake-word commands, local system actions, and Gemini AI responses in
 3. Install dependencies:
 
 ```powershell
-py -m pip install SpeechRecognition wikipedia edge-tts pygame opencv-python pyautogui Pillow google-genai customtkinter pywhatkit psutil winshell pyaudio pywin32
+py -m pip install -r requirements.txt
 ```
 
 4. Add your Gemini API key:

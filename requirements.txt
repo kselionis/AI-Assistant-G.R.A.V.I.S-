@@ -1,0 +1,15 @@
+SpeechRecognition
+wikipedia
+edge-tts
+pygame
+opencv-python
+pyautogui
+Pillow
+google-genai
+customtkinter
+pywhatkit
+psutil
+winshell
+httpx
+PyAudio
+pywin32
